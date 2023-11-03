@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { TbSocial } from "react-icons/tb";
-import TextInput from "../components/TextInput";
+import { CustomButton, Loading, TextInput } from "../components";
 
 const Login = () => {
   const {
@@ -11,6 +13,11 @@ const Login = () => {
   } = useForm({
     mode: "onChange",
   });
+
+  const [errMSG, setErrMSG] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const dispatch = useDispatch();
+
   return (
     <div className="bg-bgColor w-full h-[100vh] flex items-center justify-center p-6">
       <div className="w-full md:w-2/3 h-fit lg:h-full 2xl:h-5/6 py-8 lg:py-0 flex bg-primary rounded-xl overflow-hidden shadow-xl">
@@ -30,7 +37,7 @@ const Login = () => {
           </p>
           <span className="text-sm mt-2 text-ascent-2">Welcome Back</span>
           <form className="py-8 flex flex-col gap-5">
-          <TextInput
+            <TextInput
               name="email"
               placeholder="email@example.com"
               type="email"
@@ -55,16 +62,58 @@ const Login = () => {
               error={errors.password ? errors.password?.message : ""}
             />
 
+            <Link
+              to="/reset-password"
+              className="text-sm text-right text-blue font-semibold"
+            >
+              Forgot Password ?
+            </Link>
 
+            {errMSG?.message && (
+              <span
+                className={`text-sm ${
+                  errMSG?.status == "failed"
+                    ? "text-[#f64949fe]"
+                    : "text-[#2ba150fe]"
+                } mt-0.5`}
+              >
+                {errMSG?.message}
+              </span>
+            )}
+            {isSubmitting ? (
+              <Loading />
+            ) : (
+              <CustomButton
+                type="submit"
+                containerStyles={`inline-flex justify-center rounded-md bg-blue px-8 py-3 text-sm font-medium text-white outline-none`}
+                title="Login"
+              />
+            )}
           </form>
+
+          <p className="text-ascent-2 text-sm text-center">
+            Don't have an account?
+            <Link
+              to="/register"
+              className="text-[#065ad8] font-semibold ml-2 cursor-pointer"
+            >
+              Create Account
+            </Link>
+          </p>
         </div>
         {/* RIGHT */}
-        <div></div>
+        <div className="hidden w-1/2 h-full lg:flex flex-col items-center justify-center bg-blue">
+          <div>
+            <img
+              src={BgImg}
+              alt="Bg Image"
+              className="w-48 2xl:w-64 h-48 2xl:h-64 rounded-full object-cover"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
 export default Login;
-
-// 51.50 dk
