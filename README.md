@@ -1,4 +1,9 @@
-# Getting Started with Create React App
+# Before Read The Rest (Written by the admin)
+
+you should write this command after you installed the files.
+### npm i; npx create-react-app; npm start
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
