@@ -32,4 +32,4 @@ function App() {
 
 export default App;
 
-// 1:02:01 dk 
+// 1:12.05 dk 
