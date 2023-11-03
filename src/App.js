@@ -13,7 +13,7 @@ function Layout() {
 }
 
 function App() {
-  const {theme} = useSelector((state) => state.theme);
+  const { theme } = useSelector((state) => state.theme);
   return (
     <div data-theme={theme} className="w-full min-h-[100vh]">
       <Routes>
@@ -32,4 +32,4 @@ function App() {
 
 export default App;
 
-// 1:12.05 dk 
+// 1:26.00 dk
