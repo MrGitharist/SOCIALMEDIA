@@ -1,7 +1,7 @@
 # Before Read The Rest (Written by the admin)
 
 you should write this command after you installed the files.
-### npm i; npx create-react-app; npm start
+### `npm i; npx create-react-app; npm start`
 
 ## Getting Started with Create React App
 
