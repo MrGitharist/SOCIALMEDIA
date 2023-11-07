@@ -1,0 +1,3 @@
+QGzT67NmxxHhAhnG
+
+mongodb+srv://mustafamalas:QGzT67NmxxHhAhnG@cluster0.hni8zhw.mongodb.net/
